@@ -1,18 +1,22 @@
 # Home Assistant Meeting Summarizer
 
-Offline-first, production-ready meeting summarizer for Home Assistant. Summarizes transcripts locally with Hugging Face, with optional OpenAI GPT. Features configurable models, logging, error handling, examples, and tests. Inspired by Liquid4All’s project.
+An offline-first Python tool for summarizing meeting transcripts and audio recordings. Uses Hugging Face models for local summarization, with optional OpenAI-powered summarization.
+
+Designed to help you turn meeting transcripts into concise, readable notes while keeping local processing available when you prefer not to send transcript content to an external API.
 
 ---
 
 ## Features
-- Offline-first summarization using Hugging Face using Hugging Face (BART/T5)
-- Optional online summarization with OpenAI GPT
-- Offline audio summarization:
-    - Converts audio files (`.wav` / `.mp3`) to text using Whisper.  
-    - Summarizes the resulting transcript using the offline summarizer. 
-- Summarizes text strings or meeting transcript files
-- Configurable models, logging, and error handling
-- Examples and unit tests for easy demonstration and testing
+
+- Offline text summarization using Hugging Face Transformers models, including BART and T5-compatible models.
+- Optional OpenAI integration for cloud-based summarization.
+- Audio transcription using Whisper, followed by local summarization.
+- Multiple input types: summarize text strings and transcript files.
+- Configurable models and backends through the summarizer configuration.
+- Logging and error handling to help diagnose problems.
+- Examples and tests to help you get started and validate behavior.
+
+Privacy note: Local summarization can keep transcript text on your machine after the necessary models have been downloaded. The optional OpenAI backend sends the relevant transcript content to OpenAI. Audio transcription and model downloads may also involve external services depending on your configuration and environment.
 
 ---
 
@@ -94,8 +98,8 @@ pytest tests/
 * `torch>=2.0.0` (required for transformers)
 * `openai>=0.27.0` (online summarization)
 * `pytest>=7.0.0` (testing)
-* `torchaudio>=2.1.0
-* `System dependency: FFmpeg for audio support.
+* `torchaudio>=2.1.0`
+* `System dependency: FFmpeg for audio support.`
 
 ---
 
